@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Git review",
+    "description": "In-conversation Git review panel: diff review, per-file/per-hunk staged commits, log/blame/branch compare, AI commit messages, and push."
+  }
+}

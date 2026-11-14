@@ -1,0 +1,61 @@
+{
+  "name": "dsh-git-review-plugin",
+  "version": "0.1.0",
+  "description": "Git review panel for the deepseek-harness web UI: diff review, staged/hunk commits, log/blame/compare, AI commit messages, push",
+  "type": "module",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/diffParser.js",
+    "lib/client.js",
+    "lib/client.js.map",
+    "lib/graph.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-runtime"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "rm -rf lib .tsc-out && tsc -p tsconfig.build.json && tsdown",
+    "watch": "tsdown --watch"
+  },
+  "dependencies": {
+    "@deepseek-ai/cordis": "file:vendor/cordis",
+    "@deepseek-ai/dsh-typert-protocol": "file:vendor/dsh-typert-protocol"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-client-connection": "link:../deepseek-harness/packages/client/connection",
+    "@deepseek-ai/dsh-client-locale": "link:../deepseek-harness/packages/client/locale",
+    "@deepseek-ai/dsh-client-runtime": "link:../deepseek-harness/packages/client/runtime",
+    "@deepseek-ai/dsh-client-ui-slots": "link:../deepseek-harness/packages/client/ui-slots",
+    "@deepseek-ai/dsh-fs": "link:../deepseek-harness/packages/fs/fs",
+    "@types/react": "~18.3.1",
+    "react": "^18.2.0",
+    "tsdown": "^0.22.2",
+    "typescript": "^5.9.2"
+  },
+  "packageManager": "pnpm@11.17.0+sha512.cca3cea332ad254bb84145f966d19f4879615210346fc92c79a047f23a0d7b3cca3c3792f0076ba1f1831d277efbcf0a9119b31a9a60eca7fb3d6231f331ef72"
+}

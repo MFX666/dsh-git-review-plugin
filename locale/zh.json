@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Git 审查",
+    "description": "对话内 Git 审查面板：差异审阅、分文件/分 hunk 暂存提交、日志/blame/分支比较、AI 提交说明与推送。"
+  }
+}
